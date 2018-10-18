@@ -2,7 +2,7 @@
 
 const matrix = require('../lib')
 const assert = require('assert')
-let a, a1, a2, a3, a4, mat, mat1, mat2, mat3, mat4, m
+let a, a1, a2, a3, a4, a5, mat, mat1, mat2, mat3, mat4, mat5, m
 
 it('should exist', () => {
     assert.ok(matrix)
@@ -19,12 +19,14 @@ describe('Matrix operations', () => {
         a2 = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
         a3 = [[7, 8], [9, 10], [11, 12]]
         a4 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        a5 = [[1, 5, 3], [0, 0, 1], [0, 0, 0]]
         m = matrix([[2, 2, 2], [2, 2, 2], [2, 2, 2]])
         mat = matrix(a)
         mat1 = matrix(a1)
         mat2 = matrix(a2)
         mat3 = matrix(a3)
         mat4 = matrix(a4)
+        mat5 = matrix(a5)
     })
     it('should return size', () => {
         assert.deepEqual(mat.size(), [2, 3])
@@ -148,5 +150,9 @@ describe('Matrix operations', () => {
             [0, 1, 2],
             [0, 0, 0]]
         )
+    })
+
+    it('isInRef: should return true when matrix is in row echelon form', () => {
+        assert(mat5.isInRef())
     })
 })
