@@ -155,4 +155,8 @@ describe('Matrix operations', () => {
     it('isInRef: should return true when matrix is in row echelon form', () => {
         assert(mat5.isInRef())
     })
+
+    it('isInRef: should return false when matrix is not in row echelon form', () => {
+        assert(!mat4.isInRef())
+    })
 })
