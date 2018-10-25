@@ -98,6 +98,10 @@ describe('Matrix operations', () => {
     })
 
     it('should invert the matrix', () => {
+        assert.deepEqual(matrix([[1, 2], [3, 4]]).inv(), [[-2, 1], [1.5, -0.5]])
+    })
+
+    it('should invert the matrix', () => {
         assert.deepEqual(matrix([[5, 4, 7], [4, 8, 2], [9, 0, 4]]).inv(),
             [
                 [-0.09523809523809523, 0.047619047619047616, 0.14285714285714285],
