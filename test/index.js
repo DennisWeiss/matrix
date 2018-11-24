@@ -2,7 +2,7 @@
 
 const matrix = require('../lib')
 const assert = require('assert')
-let a, a1, a2, a3, a4, a5, mat, mat1, mat2, mat3, mat4, mat5, m
+let a, a1, a2, a3, a4, a5, a6, a7, mat, mat1, mat2, mat3, mat4, mat5, mat6, mat7, m
 
 it('should exist', () => {
     assert.ok(matrix)
@@ -16,6 +16,8 @@ describe('Matrix operations', () => {
         a3 = [[7, 8], [9, 10], [11, 12]]
         a4 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
         a5 = [[1, 5, 3], [0, 0, 1], [0, 0, 0]]
+        a6 = [[1, 0, 0], [0, 1, 0], [0, 0, 0]]
+        a7 = [[4, 5, 6], [0, 0, 0], [1, 0, 2]]
         m = matrix([[2, 2, 2], [2, 2, 2], [2, 2, 2]])
         mat = matrix(a)
         mat1 = matrix(a1)
@@ -23,6 +25,8 @@ describe('Matrix operations', () => {
         mat3 = matrix(a3)
         mat4 = matrix(a4)
         mat5 = matrix(a5)
+        mat6 = matrix(a6)
+        mat7 = matrix(a7)
     })
     it('should return size', () => {
         assert.deepEqual(mat.size(), [2, 3])
@@ -156,7 +160,16 @@ describe('Matrix operations', () => {
         assert(mat5.isInRef())
     })
 
+    it('isInRef: should return true when matrix is in row echelon form', () => {
+        assert(mat6.isInRef())
+    })
+
     it('isInRef: should return false when matrix is not in row echelon form', () => {
         assert(!mat4.isInRef())
     })
+
+    it('isInRef: should return false when matrix is not in row echelon form', () => {
+        assert(!mat7.isInRef())
+    })
+
 })
