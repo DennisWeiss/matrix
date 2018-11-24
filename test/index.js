@@ -148,13 +148,21 @@ describe('Matrix operations', () => {
         assert.deepEqual(matrix([1, 2, 3]).map(square), [1, 2 * 2, 3 * 3])
     })
 
-    // it('ref: should return matrix in row echelon form', () => {
-    //     assert.deepEqual(mat4.ref(),
-    //         [[1, 2, 3],
-    //         [0, 1, 2],
-    //         [0, 0, 0]]
-    //     )
-    // })
+    it('ref: should return matrix in row echelon form', () => {
+        assert(matrix(mat4.ref()).isInRef())
+    })
+
+    it('ref: should return matrix in row echelon form', () => {
+        assert(matrix(mat5.ref()).isInRef())
+    })
+
+    it('ref: should return matrix in row echelon form', () => {
+        assert(matrix(mat6.ref()).isInRef())
+    })
+
+    it('ref: should return matrix in row echelon form', () => {
+        assert(matrix(mat7.ref()).isInRef())
+    })
 
     it('isInRef: should return true when matrix is in row echelon form', () => {
         assert(mat5.isInRef())
