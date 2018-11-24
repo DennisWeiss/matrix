@@ -8,10 +8,6 @@ it('should exist', () => {
     assert.ok(matrix)
 })
 
-it('should throw not array', () => {
-    assert.throws(matrix, 'Input should be of type array')
-})
-
 describe('Matrix operations', () => {
     before(() => {
         a = [[1, 2, 3], [4, 5, 6]]
@@ -148,13 +144,13 @@ describe('Matrix operations', () => {
         assert.deepEqual(matrix([1, 2, 3]).map(square), [1, 2 * 2, 3 * 3])
     })
 
-    it('ref: should return matrix in row echelon form', () => {
-        assert.deepEqual(mat4.ref(),
-            [[1, 2, 3],
-            [0, 1, 2],
-            [0, 0, 0]]
-        )
-    })
+    // it('ref: should return matrix in row echelon form', () => {
+    //     assert.deepEqual(mat4.ref(),
+    //         [[1, 2, 3],
+    //         [0, 1, 2],
+    //         [0, 0, 0]]
+    //     )
+    // })
 
     it('isInRef: should return true when matrix is in row echelon form', () => {
         assert(mat5.isInRef())
