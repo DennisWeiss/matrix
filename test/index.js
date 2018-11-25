@@ -164,6 +164,42 @@ describe('Matrix operations', () => {
         assert(matrix(mat7.ref()).isInRef())
     })
 
+    it('ref: should return matrix in reduced row echelon form', () => {
+        assert.deepEqual(mat4.rref(),
+            [
+                [1, 0, -1],
+                [0, 1, 2],
+                [0, 0, 0]
+            ])
+    })
+
+    it('ref: should return matrix in reduced row echelon form', () => {
+        assert.deepEqual(mat5.rref(),
+            [
+                [1, 5, 0],
+                [0, 0, 1],
+                [0, 0, 0]
+            ])
+    })
+
+    it('ref: should return matrix in reduced row echelon form', () => {
+        assert.deepEqual(mat6.rref(),
+            [
+                [1, 0, 0],
+                [0, 1, 0],
+                [0, 0, 0]
+            ])
+    })
+
+    it('ref: should return matrix in reduced row echelon form', () => {
+        assert.deepEqual(mat7.rref(),
+            [
+                [1, 0, 2],
+                [0, 1, -0.4],
+                [0, 0, 0]
+            ])
+    })
+
     it('isInRef: should return true when matrix is in row echelon form', () => {
         assert(mat5.isInRef())
     })
