@@ -149,7 +149,6 @@ describe('Matrix operations', () => {
     })
 
     it('ref: should return matrix in row echelon form', () => {
-        console.log(matrix([[-3, 2, -6, 6], [5, 7, -5, 6], [1, 4, -2, 8]]).rref())
         assert(matrix(mat4.ref()).isInRef())
     })
 
@@ -166,7 +165,6 @@ describe('Matrix operations', () => {
     })
 
     it('rref: should return matrix in reduced row echelon form', () => {
-        console.log(matrix([[-3, 2, -6, 6], [5, 7, -5, 6], [1, 4, -2, 8]]).ref())
         assert.deepEqual(matrix([[-3, 2, -6, 6], [5, 7, -5, 6], [1, 4, -2, 8]]).rref(),
         [
           [1, 0, 0, -2],
@@ -227,4 +225,11 @@ describe('Matrix operations', () => {
         assert(!mat7.isInRef())
     })
 
+    it('solve: should return solution of linear system of equations', () => {
+        assert(matrix([[-3, 2, -6], [5, 7, -5], [1, 4, -2]]).solve([6, 6, 8]), [-2, 3, 1])
+    })
+
+    it('solve: should return solution of linear system of equations', () => {
+        assert(matrix([[3, 4, -1], [5, -2, 1], [2, -2, 1]]).solve([8, 4, 1]), [1, 2, 3])
+    })
 })
