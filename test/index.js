@@ -149,6 +149,7 @@ describe('Matrix operations', () => {
     })
 
     it('ref: should return matrix in row echelon form', () => {
+        console.log(matrix([[-3, 2, -6, 6], [5, 7, -5, 6], [1, 4, -2, 8]]).rref())
         assert(matrix(mat4.ref()).isInRef())
     })
 
@@ -164,7 +165,17 @@ describe('Matrix operations', () => {
         assert(matrix(mat7.ref()).isInRef())
     })
 
-    it('ref: should return matrix in reduced row echelon form', () => {
+    it('rref: should return matrix in reduced row echelon form', () => {
+        console.log(matrix([[-3, 2, -6, 6], [5, 7, -5, 6], [1, 4, -2, 8]]).ref())
+        assert.deepEqual(matrix([[-3, 2, -6, 6], [5, 7, -5, 6], [1, 4, -2, 8]]).rref(),
+        [
+          [1, 0, 0, -2],
+          [0, 1, 0, 3],
+          [0, 0, 1, 1]
+        ])
+    })
+
+    it('rref: should return matrix in reduced row echelon form', () => {
         assert.deepEqual(mat4.rref(),
             [
                 [1, 0, -1],
@@ -173,7 +184,7 @@ describe('Matrix operations', () => {
             ])
     })
 
-    it('ref: should return matrix in reduced row echelon form', () => {
+    it('rref: should return matrix in reduced row echelon form', () => {
         assert.deepEqual(mat5.rref(),
             [
                 [1, 5, 0],
@@ -182,7 +193,7 @@ describe('Matrix operations', () => {
             ])
     })
 
-    it('ref: should return matrix in reduced row echelon form', () => {
+    it('rref: should return matrix in reduced row echelon form', () => {
         assert.deepEqual(mat6.rref(),
             [
                 [1, 0, 0],
@@ -191,7 +202,7 @@ describe('Matrix operations', () => {
             ])
     })
 
-    it('ref: should return matrix in reduced row echelon form', () => {
+    it('rref: should return matrix in reduced row echelon form', () => {
         assert.deepEqual(mat7.rref(),
             [
                 [1, 0, 2],
