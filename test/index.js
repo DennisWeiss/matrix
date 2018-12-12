@@ -2,7 +2,7 @@
 
 const matrix = require('../lib')
 const assert = require('assert')
-let a, a1, a2, a3, a4, a5, a6, a7, mat, mat1, mat2, mat3, mat4, mat5, mat6, mat7, m
+let a, a1, a2, a3, a4, a5, a6, a7, a8, m, mat, mat1, mat2, mat3, mat4, mat5, mat6, mat7, mat8, v1
 
 it('should exist', () => {
     assert.ok(matrix)
@@ -18,6 +18,7 @@ describe('Matrix operations', () => {
         a5 = [[1, 5, 3], [0, 0, 1], [0, 0, 0]]
         a6 = [[1, 0, 0], [0, 1, 0], [0, 0, 0]]
         a7 = [[4, 5, 6], [0, 0, 0], [1, 0, 2]]
+        a8 = [[1, 4, -5], [0, 3, 5], [-1, 4, -2]]
         m = matrix([[2, 2, 2], [2, 2, 2], [2, 2, 2]])
         mat = matrix(a)
         mat1 = matrix(a1)
@@ -27,7 +28,10 @@ describe('Matrix operations', () => {
         mat5 = matrix(a5)
         mat6 = matrix(a6)
         mat7 = matrix(a7)
+        mat8 = matrix(a8)
+        v1 = [1, 4, 3]
     })
+
     it('should return size', () => {
         assert.deepEqual(mat.size(), [2, 3])
     })
@@ -231,5 +235,9 @@ describe('Matrix operations', () => {
 
     it('solve: should return solution of linear system of equations', () => {
         assert(matrix([[3, 4, -1], [5, -2, 1], [2, -2, 1]]).solve([8, 4, 1]), [1, 2, 3])
+    })
+
+    it('vectorProd: should return correct vector product', () => {
+        assert(mat8.vectorProd(v1), [2, 27, 9])
     })
 })
